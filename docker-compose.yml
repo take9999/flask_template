@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  uwsgi:
+    build: app
+    restart: always
+    container_name: 'uwsgi'
+    volumes:
+      - ./app:/var/www/
+    ports:
+      - "3031:3031"
+    environment:
+      TZ: "Asia/Tokyo"
+    depends_on:
+      - db
+
+  nginx:
+    build: ./nginx
+    restart: always
+    container_name: 'nginx'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    links:
+      - uwsgi
+    ports:
+      - "80:80"
+    environment:
+      TZ: "Asia/Tokyo"
+
+  db:
+    build: ./postgres
+    restart: always
+    container_name: 'postgres'
+    environment:
+      POSTGRES_USER: user1
+      POSTGRES_PASSWORD: pass1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+
+volumes:
+  db-data:

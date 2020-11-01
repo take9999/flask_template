@@ -1,0 +1,76 @@
+{% extends "bootstrap/base.html" %}
+
+<!-- 全ページ共通のスタイル -->
+{%- block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='honoka/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='honoka/css/fontawesome-all.min.css') }}">
+{%- endblock styles %}
+
+{% block add_styles %}{% endblock add_styles %}
+
+{% block body %}
+    {% block scripts %}
+        <script type="text/javascript" src="{{ url_for('static', filename='honoka/js/jquery-3.4.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='honoka/js/popper.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='honoka/js/bootstrap.min.js') }}"></script>
+    {%- endblock scripts %}
+
+    <!-- ナビゲーションバー -->
+    {% block navbar %}
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="./">With laughter</a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('view.index')}}">Top
+                    <span class="sr-only">(current)</span>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('view.center')}}">Center</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('view.todo')}}">Todo</a>
+              </li>
+
+<!--              <li class="nav-item dropdown active">-->
+<!--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                  Live demo-->
+<!--                </a>-->
+<!--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                  <a class="dropdown-item" href="./bootstrap-ja.html">Japanese Page</a>-->
+<!--                  <a class="dropdown-item" href="./bootstrap.html">English Page</a>-->
+<!--                </div>-->
+<!--              </li>-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    {%- endblock navbar %}
+
+    <!-- 各ページのコンテンツ -->
+    {% block content %}{% endblock content %}
+
+    {% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                &copy; Copyright 2020 by take9999
+            </p>
+        </div>
+    </footer>
+    {% endblock footer %}
+
+    {% block add_scripts %}{% endblock add_scripts %}
+
+{% endblock body %}

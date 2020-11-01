@@ -1,0 +1,6 @@
+Flask
+Flask-Login
+Flask-Bootstrap4
+Flask-Wtf
+uwsgi
+psycopg2

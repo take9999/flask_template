@@ -1,0 +1,2 @@
+# ベースイメージ
+FROM postgres

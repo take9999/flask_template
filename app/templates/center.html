@@ -1,0 +1,61 @@
+{% extends "base_layout.html" %}
+
+{% block add_styles %}
+img.exp {
+width: 2%;
+height: 2%;
+}
+{% endblock add_styles %}
+
+{% block content %}
+<div class="m-3">
+
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="page-header">笑ってはいけないセンター試験</h1>
+          <p>このページでは、センター試験で登場したキャラクターを紹介しています。</p>
+        </div>
+      </div>
+
+            <div class="row m-2">
+              <div class="col-md-4">
+                  <img src="{{ url_for('static', filename='images/center_apple.jpg') }}" alt="apple" class="img-thumbnail">
+              </div>
+              <div class="col-md-8">
+                <h2>りんご</h2>
+                <p>羽の生えたりんご。正解を惑わせるために羽根が生えている。</p>
+              </div>
+            </div>
+            <div class="row m-2">
+              <div class="col-md-4">
+                  <img src="{{ url_for('static', filename='images/center_carrot.jpg') }}" alt="carrot" class="img-thumbnail">
+              </div>
+              <div class="col-md-8">
+                <h2>にんじん</h2>
+                <p>羽の生えたにんじん。試験では正解として扱われたキャラクター。</p>
+              </div>
+            </div>
+            <div class="row m-2">
+              <div class="col-md-4">
+                  <img src="{{ url_for('static', filename='images/center_cucumber.jpg') }}" alt="cucumber" class="img-thumbnail">
+              </div>
+              <div class="col-md-8">
+                <h2>きゅうり</h2>
+                <p>ムキムキのきゅうり。</p>
+              </div>
+            </div>
+            <div class="row m-2">
+              <div class="col-md-4">
+                  <img src="{{ url_for('static', filename='images/center_grape.jpg') }}" alt="grape" class="img-thumbnail">
+              </div>
+              <div class="col-md-8">
+                <h2>ぶどう</h2>
+                <p>ムキムキのぶどう</p>
+              </div>
+            </div>
+</div>
+
+{% endblock content %}
+
+{% block add_scripts %}
+{%- endblock add_scripts %}
