@@ -2,7 +2,7 @@ version: "3"
 
 services:
   uwsgi:
-    build: app
+    build: ./app
     restart: always
     container_name: 'uwsgi'
     volumes:

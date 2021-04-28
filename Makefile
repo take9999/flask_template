@@ -1,4 +1,4 @@
-NAME=flaskapp
+NAME=flask_app
 
 run:
 	docker-compose build

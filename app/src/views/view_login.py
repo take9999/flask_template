@@ -39,17 +39,21 @@ def login():
     # loginしている場合は、index.htmlへ
     if current_user.is_authenticated:
         return render_template("index.html")
-    # ログインボタンが押された場合はチェックして、index.htmlへ
+
+    # ログインボタンが押された場合は認証して、index.htmlへ
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+
+        # todo ユーザはDB上で管理するように変更
         if password == username + "_secret":
             user_id = username.split('user')[1]
             user = User(user_id)
             login_user(user)
             return render_template("index.html")
         else:
-            return "401"
+            # todo 認証エラーを画面に表示
+            return render_template("login.html")
     else:
         return render_template("login.html")
 
